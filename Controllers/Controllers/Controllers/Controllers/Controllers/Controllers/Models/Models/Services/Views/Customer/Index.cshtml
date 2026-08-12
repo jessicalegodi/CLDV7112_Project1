@@ -1,0 +1,53 @@
+@model IEnumerable<CLDV7112_Project1.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="container py-4">
+
+    <div class="d-flex justify-content-between mb-4">
+        <div>
+            <h1>Customer Profiles</h1>
+            <p class="text-muted">
+                Customer information stored in Azure Table Storage.
+            </p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary">
+            + Add Customer
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var customer in Model)
+                    {
+                        <tr>
+                            <td>@customer.FirstName</td>
+                            <td>@customer.LastName</td>
+                            <td>@customer.Email</td>
+                            <td>@customer.Phone</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
