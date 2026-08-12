@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="container py-4">
+
+    <h1>Order Processing</h1>
+
+    <p class="text-muted">
+        Order and inventory messages stored in Azure Queue Storage.
+    </p>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <form asp-action="Send" method="post">
+
+                <label class="form-label">
+                    Order Processing Message
+                </label>
+
+                <input name="message"
+                       class="form-control mb-3"
+                       placeholder="Example: Processing order ORD001"
+                       required />
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Add Order Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
